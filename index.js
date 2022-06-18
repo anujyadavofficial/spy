@@ -1,20 +1,18 @@
 // Import stylesheets
 import './style.css';
 
-
-
 // Write Javascript code!
 const appDiv = document.getElementById('app');
 
 var body = document.body;
 
-var out = document.getElementById('console');
-out.log = function (message) {
-  var node = document.createElement('li');
-  var textnode = document.createTextNode(message);
-  node.appendChild(textnode);
-  out.appendChild(node);
-};
+// var out = document.getElementById('console');
+// out.log = function (message) {
+//   var node = document.createElement('li');
+//   var textnode = document.createTextNode(message);
+//   node.appendChild(textnode);
+//   out.appendChild(node);
+// };
 
 var pnrTexts = ['pnr', 'ticket', 'number'];
 var nameTexts = ['email', 'last', 'name'];
