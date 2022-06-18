@@ -183,4 +183,4 @@ var VM = {
 
 setTimeout(function () {
   VM.Renderer.renderSpecs();
-}, 500);
+}, 1000);
