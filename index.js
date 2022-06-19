@@ -4,15 +4,11 @@ import './style.css';
 // Write Javascript code!
 const appDiv = document.getElementById('app');
 
+var Q = {
+  byId: document.getElementById,
+  byClass: document.getElementsByClassName,
+};
 var body = document.body;
-
-// var out = document.getElementById('console');
-// out.log = function (message) {
-//   var node = document.createElement('li');
-//   var textnode = document.createTextNode(message);
-//   node.appendChild(textnode);
-//   out.appendChild(node);
-// };
 
 var pnrTexts = ['pnr', 'ticket', 'number'];
 var nameTexts = ['email', 'last', 'name'];
@@ -169,21 +165,22 @@ var VM = {
   Rules: [{ id: 'Found exact two', confidence: 0.5 }],
   Renderer: {
     renderSpecs: function () {
-      var template = $('#tmpl-spec').html();
+      console.log(document.getElementById('tmpl-spec'));
+      var template = document.getElementById('tmpl-spec').innerHTML;
       var templateScript = Handlebars.compile(template);
 
       Specs.forEach(function (spec) {
         var html = templateScript(spec);
         // Insert the HTML code into the page
-        $('.list-group').append(html);
+        document.getElementsByClassName('list-group')[0].appendChild(html);
       });
     },
   },
 };
 
 function execIfJQ() {
-  console.log(window.$);
-  if (window.$) {
+  console.log(window.jQuery);
+  if (window.jQuery) {
     console.log('got it');
     VM.Renderer.renderSpecs();
   } else {
@@ -193,4 +190,5 @@ function execIfJQ() {
   }
 }
 
-execIfJQ();
+// execIfJQ();
+VM.Renderer.renderSpecs();
