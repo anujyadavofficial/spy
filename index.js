@@ -181,6 +181,16 @@ var VM = {
   },
 };
 
-setTimeout(function () {
-  VM.Renderer.renderSpecs();
-}, 1000);
+function execIfJQ() {
+  console.log(window.$);
+  if (window.$) {
+    console.log('got it');
+    VM.Renderer.renderSpecs();
+  } else {
+    setTimeout(function () {
+      execIfJQ();
+    }, 5000);
+  }
+}
+
+execIfJQ();
